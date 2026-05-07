@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./defaults/Paw.Logo.jpg">
+  <title>SignUp - PetConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body class="page-container">
+
+  <div class="auth-wrapper">
+
+    <div class="promo-section">
+      <img src="https://placedog.net/500/350" class="promo-image" alt="Cozy Dog">
+      <h1 class="brand-logo">🐾 PetConnect</h1>
+      <p class="brand-description">
+        Join our community of animal lovers! Create a profile for your furry, 
+        feathery, or flowy friends, and start sharing those pawsome moments 
+        with the world.
+      </p>
+    </div>
+  
+    <div class="auth-card">
+      <h2 class="auth-title">Create Account</h2>
+
+      <div class="auth-form">
+        <input type="text" id="name" placeholder="Full Name" />
+        <input type="text" id="username" placeholder="Username" />
+        <input type="email" id="email" placeholder="Email" />
+        <input type="text" id="bio" placeholder="Bio" />
+        <input type="password" id="password" placeholder="Password" />
+
+        <div class="avatar-selection">
+          <p class="avatar-label">Choose your avatar:</p>
+
+        <div id="avatars" class="avatar-grid">
+          <img src="../defaults/avatar1.jpg" onclick="selectAvatar(this)" />
+          <img src="../defaults/avatar2.jpg" onclick="selectAvatar(this)" />
+          <img src="../defaults/avatar3.jpg" onclick="selectAvatar(this)" />
+          <img src="../defaults/avatar4.jpg" onclick="selectAvatar(this)" />
+          <img src="../defaults/avatar5.jpg" onclick="selectAvatar(this)" />
+          <img src="../defaults/avatar7.jpg" onclick="selectAvatar(this)" />
+        </div>
+
+        <button type="submit" onclick="signup()" class="btn-submit">Signup</button>
+      </div>
+
+  <p class="auth-footer">
+    <a href="login.html">
+      Already have account? <span class="link-text"> Sign in </span>
+    </a>
+  </p>
+
+</div>
+
+  <script type="module" src="../js/auth.js"></script>
+
+</body>
+</html>

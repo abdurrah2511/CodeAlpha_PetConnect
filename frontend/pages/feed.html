@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./defaults/Paw.Logo.jpg">
+  <title>PetConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/feed.css">
+</head>
+<body class="page-bg">
+  
+  <nav class="navbar">
+    <div class="nav-spacer"></div>
+    <h1 class="nav-logo">🐾 PetConnect</h1>
+
+    <div class="nav-actions">
+      <span class="authSection" id="authSection">
+        <a href="login.html" id="loginBtn">SIGN.IN</a>
+        <span class="divider">/</span>
+        <a href="signup.html" id="registerBtn">SIGN.UP</a>
+      </span>
+
+      <span id="userSection" style="display:none; align-items: center; gap: 15px;">
+        <button class="btn-post" onclick="toggleCreateModal()">+ Post</button>
+        
+        <div class="nav-user-profile" style="display: flex; align-items: center; gap: 8px;">
+          <a id="username" class="font-bold" style="cursor: pointer;" onclick="goToProfile(localStorage.getItem('userId'))"></a>
+        </div>
+        
+        <a onclick="logout()" style="cursor: pointer;">LOGOUT</a>
+      </span>
+    </div>
+  </nav>
+
+  <div class="grid-container">
+    <div class="feed-main" id="posts"></div>
+
+    <div class="feed-sidebar">
+      <div class="sidebar-card">
+        <h2 class="sidebar-title">Suggestions</h2>
+        <div class="suggestion-list" id="suggestedUsers"></div>
+      </div>
+
+      <footer class="footer">
+        <p>© 2026 PetConnect</p>
+        <p>Privacy · Terms · Help</p>
+      </footer>
+    </div>
+
+    <div id="createPostModal" class="modal-overlay hidden">
+        <div class="modal-content max-w-lg">
+          <button onclick="toggleCreateModal()" class="btn-modal-close">✕</button>
+          <h2 class="auth-title">Create New Post</h2>
+          
+          <div class="modal-body">
+            <textarea id="caption" placeholder="What's your pet up to?" class="form-input mb-3" rows="3"></textarea>
+            
+            <div class="upload-area" onclick="document.getElementById('imageInput').click()">
+              <input type="file" id="imageInput" hidden accept="image/*" onchange="previewImage(event)">
+              <div id="uploadPlaceholder">
+                <p>Click to upload a photo 📸</p>
+              </div>
+              <img id="preview" src="" class="preview-img hidden">
+            </div>
+
+            <button class="btn-submit mt-4" onclick="handlePost()">Post Now</button>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/feed.js"></script>
+</body>
+</html>

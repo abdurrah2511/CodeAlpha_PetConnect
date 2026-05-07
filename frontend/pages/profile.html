@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./defaults/Paw.Logo.jpg">
+  <title>Profile - PetConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body class="page-bg">
+
+  <nav class="navbar">
+    <button class="btn-nav-back" onclick="window.location.href='feed.html'">← Feed</button>
+    <h1 class="nav-logo">🐾 PetConnect</h1>
+      
+    <div class="nav-actions">
+      <div id="authSection" style="display: none;">
+        <button class="btn-post-nav" onclick="window.location.href='login.html'">Sign In</button>
+      </div>
+        
+      <div id="userSection" style="display: none; align-items: center; gap: 15px;">
+        <button id="userPostBtn" class="btn-post" onclick="toggleCreateModal()">+ Post</button>
+          
+        <div class="nav-user-profile" style="display: flex; align-items: center; gap: 8px;">
+          <a id="username" class="font-bold" style="cursor: pointer;" onclick="goToProfile(localStorage.getItem('userId'))"></a>
+        </div>
+          
+        <a onclick="logout()" style="cursor: pointer;">LOGOUT</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="profile-container">
+    <div class="profile-header" id="profile"></div>
+
+    <div class="posts-grid" id="userPosts"></div>
+  </div>
+
+  <div id="createPostModal" class="modal-overlay hidden">
+    <div class="modal-content max-w-lg">
+      <button onclick="toggleCreateModal()" class="btn-modal-close">✕</button>
+      <h2 class="auth-title">Create New Post</h2>
+          
+      <div class="modal-body">
+        <textarea id="caption" placeholder="What's your pet up to?" class="form-input" rows="3"></textarea>
+              
+        <div class="upload-area" onclick="document.getElementById('imageInput').click()">
+          <input type="file" id="imageInput" hidden accept="image/*" onchange="previewImage(event)">
+          <div id="uploadPlaceholder">
+            <p>Click to upload a photo 📸</p>
+          </div>
+          <img id="preview" src="" class="preview-img hidden">
+        </div>
+
+        <button class="btn-submit mt-4" onclick="handlePost()">Post Now</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="postModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <button onclick="closeModal()" class="btn-modal-close">✕</button>
+      
+      <img id="modalImage" src="" class="modal-img" alt="Post Image">
+
+      <div class="modal-caption">
+        <strong id="modalUsername">@username</strong>
+        <span id="modalCaptionText"></span>
+      </div>
+
+      <div class="modal-actions">
+        <div class="action-group">
+          <button id="modalLikesBtn" class="action-btn" onclick="likePost(window.currentOpenPostId)">❤️ 0</button>
+          <button id="modalCommentsBtn" class="action-btn" onclick="toggleCommentSection(window.currentOpenPostId)">💬 0</button>
+          <button class="action-btn">🔗 Share</button>
+        </div>
+        <button class="action-btn">🔖 Save</button>
+      </div>
+
+      <div class="modal-comments ">
+        <div class="comment-area" id="modal-comment-area" style="display: flex;">
+          <input type="text" id="modalCommentInput" placeholder="Add a comment..." class="comment-input">
+          <button class="btn-post-submit" onclick="addComment(window.currentOpenPostId)">Send</button>
+        </div>
+        <div id="modalCommentsList" class="comment-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/profile.js"></script>
+</body>
+</html>
