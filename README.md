@@ -136,17 +136,23 @@ Open `index.html` in browser
 ### 🏠 Home Page
 ![Home](./image/Home.png)
 
-### 🃏 Authentication Page
-![Authentication](./image/Authentication.png)
+### 🃏 Feed Page
+![Feed](./image/Feed.png)
 
-### 🃏 Collections Page
-![Collections](./image/Collections.png)
+### 🃏 Authentication SignIn Page
+![SignIn](./image/SignIn.png)
 
-### 🛒 Cart Page
-![Cart](./image/Cart.png)
+### 🃏 Authentication SignUp Page
+![SignUp](./image/SignUp.png)
 
-### 📦 Orders Page
-![Orders](./image/Order.png)
+### 🛒 Profile Page
+![Profile](./image/Profile.png)
+
+### 📦 Post Page
+![Post](./image/Post.png)
+
+### 📦 Posting Page
+![Posting](./image/Posting.png)
 
 ---
 
@@ -174,7 +180,7 @@ Open `index.html` in browser
 
 ### 📬 Contact
 
-f you like this project or want to collaborate:
+if you like this project or want to collaborate:
 
 - GitHub: https://github.com/abdurrah2511
 
