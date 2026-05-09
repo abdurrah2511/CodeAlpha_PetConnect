@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* --- Base Styles --- */
 * {
   margin: 0;
   padding: 0;
@@ -6,22 +9,13 @@
 }
 
 body {
-  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
   color: #2c1a0f;
+  background-color: #fff2e6;
   animation: fadeInPage 0.8s ease-in-out;
 }
 
-@keyframes fadeInPage {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-a {
-  text-decoration: none;
-}
-
+/* --- Layout --- */
 .page-container {
-  background-color: #fff2e6;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -38,23 +32,14 @@ a {
   animation: fadeInUpGrid 0.8s ease-out;
 }
 
-@keyframes fadeInUpGrid {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* --- Left Side: Promo --- */
 .promo-section {
-  display: none;
+  display: none; /* Desktop only */
   flex-direction: column;
   justify-content: center;
   width: 50%;
   padding-right: 2.5rem;
   animation: slideInLeft 0.8s ease-out;
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
 }
 
 .promo-image {
@@ -78,6 +63,7 @@ a {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: transform 0.3s ease;
+  display: inline-block;
 }
 
 .brand-logo:hover {
@@ -89,6 +75,7 @@ a {
   line-height: 1.625;
 }
 
+/* --- Right Side: Card --- */
 .auth-card {
   width: 100%;
   background-color: #ffffff;
@@ -96,13 +83,8 @@ a {
   border-radius: 1.25rem;
   border: 1px solid #ffe6cc;
   box-shadow: 0 4px 16px rgba(241, 196, 15, 0.08);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: popInCard 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-@keyframes popInCard {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
 }
 
 .auth-card:hover {
@@ -119,37 +101,34 @@ a {
   color: #613611;
 }
 
+/* --- Form Elements --- */
 .auth-form {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
 }
 
-.form-input, input {
+.auth-form input {
   width: 100%;
   border: 1.5px solid #f5b041;
   border-radius: 9999rem;
   padding: 0.7rem;
   background-color: #fffaf5;
   outline: none;
-  font-family: inherit;
   font-size: 0.95rem;
   font-weight: 700;
+  color: #5c3519;
   transition: all 0.3s ease;
+  margin-bottom: 0.85rem;
 }
 
-.form-input:focus, input:focus {
+.auth-form input:focus {
   border-color: #e67e22;
   box-shadow: 0 0 8px rgba(230, 126, 34, 0.4);
 }
 
-input{
-  color: #5c3519;
-}
-
 .btn-submit {
   margin-top: 1rem;
-  margin-bottom: 1rem;
   width: 100%;
   background: linear-gradient(135deg, #ff7e5f, #feb47b);
   padding: 0.85rem;
@@ -170,49 +149,7 @@ input{
   box-shadow: 0 6px 16px rgba(255, 126, 95, 0.4);
 }
 
-.btn-submit::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.btn-submit:active::after {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0;
-  transition: 0s;
-}
-
-.auth-footer {
-  font-size: 0.85rem;
-  text-align: center;
-  color: #a85822;
-  margin-top: 0.5rem;
-}
-
-.auth-footer a{
-  color: #a85822;
-}
-
-.link-text {
-  color: #d35400;
-  cursor: pointer;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.auth-footer a:hover {
-  color: #e67e22;
-  text-decoration: underline;
-}
-
-/* Avatar Selection */
+/* --- Avatar Section --- */
 .avatar-selection {
   margin: 0.5rem 0;
 }
@@ -228,31 +165,55 @@ input{
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
-  cursor: pointer;
-  position: relative;
 }
 
 .avatar-grid img {
   width: 3rem;
   height: 3rem;
-  border-radius: 9999px;
+  border-radius: 50%;
   border: 2px solid #f5b041;
   transition: all 0.3s ease;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .avatar-grid img:hover {
   transform: translateY(-4px) scale(1.05);
   border-color: #e67e22;
-  box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
 }
 
-#avatars img.selected {
+.avatar-grid img.selected {
   border-color: #e67e22;
   box-shadow: 0 0 0 3px #f39c12, 0 0 0 6px #ffe6cc;
   transform: scale(1.08);
 }
 
+/* --- Footer --- */
+.auth-footer {
+  font-size: 0.85rem;
+  text-align: center;
+  color: #a85822;
+  margin-top: 1.5rem;
+}
+
+.auth-footer a {
+  color: #d35400;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  color: #e67e22;
+  text-decoration: underline;
+}
+
+/* --- Keyframes --- */
+@keyframes fadeInPage { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUpGrid { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes popInCard { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* --- Responsive --- */
 @media (min-width: 768px) {
   .promo-section { display: flex; }
   .auth-card { width: 33.33%; }

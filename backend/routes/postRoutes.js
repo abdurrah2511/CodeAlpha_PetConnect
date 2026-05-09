@@ -14,7 +14,7 @@ const {
 router.post("/", protect, upload.single("image"), createPost);
 
 // Get all posts
-router.get("/", protect, getPosts);
+router.get("/",protect, getPosts);
 
 router.put("/:id/like", protect, toggleLike);
 

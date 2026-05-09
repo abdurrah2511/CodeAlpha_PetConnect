@@ -4,6 +4,8 @@ export let page = 1;
 let loading = false;
 export let hasMore = true;
 
+const isLoggedIn = !!localStorage.getItem("token");
+
 export const postsContainer = document.getElementById("posts");
 
 // Load posts

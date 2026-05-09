@@ -40,8 +40,6 @@ app.use("/api/posts", postRoutes);
 // Serve images
 app.use("/uploads", express.static("uploads"));
 
-
 app.use("/api/comments", commentRoutes);
 
 app.use("/api/users", userRoutes);
-
