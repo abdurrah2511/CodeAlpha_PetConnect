@@ -4,13 +4,12 @@ A full-stack social media platform where users can share posts of their pets, in
 
 ---
 
-#### ✨ Features
+## ✨ Features
 
 ### 👤 Authentication
 - User Signup & Login
 - JWT-based authentication
 - Protected API routes
-
 
 ### 🐶 User Profiles
 - Profile with name + username (@handle) + Bio
@@ -18,25 +17,21 @@ A full-stack social media platform where users can share posts of their pets, in
 - Followers & Following system
 - View user posts
 
-
 ### 📸 Posts
 - Upload pet images
 - Add captions
 - View global feed
 - Infinite scroll feed
 
-
 ###  Social Interactions
 - Like / Unlike posts
 - Comment on posts
 - Follow / Unfollow users
 
-
 ### 🧭 Feed System
 - Infinite scrolling feed
 - Real-time updates on like/comment
 - Clean card-based UI
-
 
 ### 👥 Sidebar (Suggestions)
 - Suggested users list
@@ -101,7 +96,6 @@ pet-connect/
 │   └── index.html
 │
 └── README.md
-
 ```
 
 ---
@@ -110,19 +104,22 @@ pet-connect/
 
 Create a `.env` file inside backend:
 
+```bash
 MONGO_URI=mongodb://127.0.0.1:27017/pet-social
 JWT_SECRET=meowmeow_supersecretkey
 PORT=5000
+```
 
 ---
 
-#### 🧪 How to Run Locally
+## 🧪 How to Run Locally
 
 ### 🔧 Backend
-
+```bash
 cd backend
 npm install
 npm run dev
+```
 
 ### 🌐 Frontend
 
@@ -178,7 +175,7 @@ Open `index.html` in browser
 
 ---
 
-### 📬 Contact
+## 📬 Contact
 
 if you like this project or want to collaborate:
 
